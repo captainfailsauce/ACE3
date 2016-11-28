@@ -16,8 +16,6 @@
 
 #include "script_component.hpp"
 
-#define DEFAULT_DELAY (round(random(10)+5))
-
 params ["_unit", "_event", "_args"];
 
 [_unit, true] call FUNC(setUnconscious);
