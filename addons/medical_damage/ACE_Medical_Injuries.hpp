@@ -61,7 +61,7 @@ class ACE_Medical_Injuries {
             causes[] = {"bullet", "grenade","explosive", "shell", "unknown"};
             bleeding = 0.1;
             pain = 0.2;
-            minDamage = 0.15;
+            minDamage = 0.35;
             causeLimping = 1;
         };
         // Deep, narrow wounds produced by sharp objects such as nails, knives, and broken glass.

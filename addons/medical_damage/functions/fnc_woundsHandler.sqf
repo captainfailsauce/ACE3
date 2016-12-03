@@ -39,10 +39,6 @@ call compile _extensionOutput;
 {
     _x params ["", "_woundClassIDToAdd", "_bodyPartNToAdd", "", "_bleeding"];
     
-    // How much tissue damage do we have?
-    private _nastiness = random (_damage ^ 2);
-    _nastiness = (0.1 * _damage) + (0.9 * _damage) * (1 - (0.995 ^ _nastiness));
-
     // How much bleeding do we have?
     private _bloodiness = random (_damage ^ 2);
     _bloodiness = (0.1 * _damage) + (0.9 * _damage) * (1 - (0.995 ^ _bloodiness));
@@ -57,14 +53,16 @@ call compile _extensionOutput;
     _x pushBack _pain;
     _painToAdd = _painToAdd + _pain;
     
-    _x pushBack _nastiness;
+    _x pushBack _damage;
+    
+    systemChat format["%1, damage: %2, peneration: %3, bleeding: %4, pain: %5", _bodyPart, _damage, _damage > PENETRATION_THRESHOLD, _x select 4, _x select 5];
     
     if (_bodyPartNToAdd == 0 && {_damage > 1}) then {
         [QEGVAR(medical,InjuryFatal), _unit] call CBA_fnc_localEvent;
     };
     
     private _causeLimping = (GVAR(woundsData) select _woundClassIDToAdd) select 7;
-    if (_causeLimping == 1 && {_nastiness > 0.3} && {_bodyPartNToAdd > 3}) then {
+    if (_causeLimping == 1 && {_damage > 0.3} && {_bodyPartNToAdd > 3}) then {
         [_unit, true] call EFUNC(medical_engine,setLimping);
     };
     
