@@ -27,7 +27,7 @@ class ACE_Medical_Injuries {
             bleeding = 0.0;
             pain = 0.05;
             minDamage = 0.02;
-            maxDamage = 0.20;
+            maxDamage = 0.35;
         };
         // Occur when a heavy object falls onto a person, splitting the skin and shattering or tearing underlying structures.
         class CrushWound {
@@ -61,7 +61,7 @@ class ACE_Medical_Injuries {
             causes[] = {"bullet", "grenade","explosive", "shell", "unknown"};
             bleeding = 0.1;
             pain = 0.2;
-            minDamage = 0.15;
+            minDamage = 0.35;
             causeLimping = 1;
         };
         // Deep, narrow wounds produced by sharp objects such as nails, knives, and broken glass.

@@ -116,6 +116,8 @@ if (_bloodPressureL < 40) then {
     [_unit, true] call FUNC(setUnconscious);
     //[QGVAR(CriticalVitals), _unit] call CBA_fnc_localEvent;
 };
-if ((_heartRate < 20) || {_heartRate > 200} || {_bloodPressureH < 50}) then {
+if ((_heartRate < 20) || {_heartRate > 220} || {_bloodPressureH < 50}) then {
     [QGVAR(FatalVitals), _unit] call CBA_fnc_localEvent;
 };
+
+[_unit] call FUNC(handleIncapacitation);

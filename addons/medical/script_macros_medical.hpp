@@ -26,6 +26,9 @@
 // 250ml should take 60 seconds to fill. 250ml/60s = 4.166ml/s.
 #define IV_CHANGE_PER_SECOND ([1000, 4.166] select GVAR(advancedIVBags)) // in milliliters per second
 
+// Minimum amount of damage required for penetrating wounds (also minDamage for velocity wounds)
+#define PENETRATION_THRESHOLD 0.35
+
 // To be replaced by a proper blood pressure calculation
 #define BLOOD_LOSS_KNOCK_OUT_THRESHOLD 0.5 // 50% of cardiac output
 
